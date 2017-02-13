@@ -1,4 +1,5 @@
-Simple indent guides for your code. Space indents are visually identified by the "┆" character, while tabs are distinguished by "|".
+# Features
+Space indents are visually identified by the "┆" character, while tabs are distinguished by "|".
 Manually calling the command `ToggleIndentGuides` will toggle indent guides scoped to a specific buffer.
 
 If there are any files you would like to not add indent guides for, add the filetype to the ignore list:
