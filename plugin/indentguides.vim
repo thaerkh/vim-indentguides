@@ -64,6 +64,6 @@ augroup IndentGuides
   au! BufWinEnter * call s:ToggleIndentGuides(0)
 augroup END
 
-command! ToggleIndentGuides call s:ToggleIndentGuides(1)
+command! IndentGuidesToggle call s:ToggleIndentGuides(1)
 
 " vim: ts=2 sw=2 et
