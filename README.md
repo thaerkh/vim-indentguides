@@ -1,3 +1,6 @@
+<p align="center">
+<img src="https://raw.githubusercontent.com/thaerkh/vim-indentguides/master/wiki/screenshots/demo.png" >
+</p>
 # Features
 Space indents are visually identified by the "┆" character, while tabs are distinguished by "|".
 Manually calling the command `IndentGuidesToggle` will toggle indent guides scoped to a specific buffer.
