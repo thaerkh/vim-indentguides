@@ -1,10 +1,10 @@
 # Features
 Space indents are visually identified by the "┆" character, while tabs are distinguished by "|".
-Manually calling the command `ToggleIndentGuides` will toggle indent guides scoped to a specific buffer.
+Manually calling the command `IndentGuidesToggle` will toggle indent guides scoped to a specific buffer.
 
 If there are any files you would like to not add indent guides for, add the filetype to the ignore list:
 ```
-let g:workspace_indentguides_ignore = ['text']
+let g:indentguides_ignorelist = ['text']
 ```
 
 # Installation
@@ -20,9 +20,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'thaerkh/vim-indentguides'
 call plug#end()
 ```
-If you don't already have Plug, this will auto-download Plug for you and install the workspace plugin.
+If you don't already have Plug, this will auto-download Plug for you and install the indentguides plugin.
 
-If you already have Plug, simply paste `Plug 'thaerkh/vim-workspace'` and call `:PlugInstall` to install the plugin.
+If you already have Plug, simply paste `Plug 'thaerkh/vim-indentguides'` and call `:PlugInstall` to install the plugin.
 
 Remember to `:PlugUpdate` often to get all the latest features and bug fixes!
 ### Using Vundle
