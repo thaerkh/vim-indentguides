@@ -12,6 +12,12 @@ If there are any files you would like to not add indent guides for, add the file
 let g:indentguides_ignorelist = ['text']
 ```
 
+If you'd like to change the default space and tab indent characters, modify the following in your vimrc:
+```
+let g:indentguides_spacechar = '┆'
+let g:indentguides_tabchar = '|'
+```
+
 # Installation
 
 ### Using Plug
