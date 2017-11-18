@@ -45,11 +45,10 @@ function! s:ToggleIndentGuides(user_initiated)
     " TODO-TK: local and global listchars are the same, and s: variables are failing (??)
     let g:original_listchars = get(g:, 'original_listchars', &g:listchars)
 
-    if &g:listchars !~ 'tab:'
-      let &g:listchars = &g:listchars . ',tab:' . g:indentguides_tabchar
-    endif
-    if &g:listchars !~ 'trail:'
-      let &g:listchars = &g:listchars . ',trail:·'
+    " TODO: figure out why checking each addition individually breaks things for tab (unicode?)
+    let listchar_guides = ',tab:' . g:indentguides_tabchar . ' ,trail:·'
+    if &g:listchars !~ listchar_guides
+      let &g:listchars = &g:listchars . listchar_guides
     endif
     setlocal concealcursor=inc
     setlocal conceallevel=2
