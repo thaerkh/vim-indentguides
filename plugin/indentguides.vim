@@ -7,6 +7,7 @@ let g:indentguides_firstlevel = get(g:, 'indentguides_firstlevel', 0)
 let g:indentguides_ignorelist = get(g:, 'indentguides_ignorelist', [])
 let g:indentguides_spacechar = get(g:, 'indentguides_spacechar', '┆')
 let g:indentguides_tabchar = get(g:, 'indentguides_tabchar', '|')
+let g:indentguides_toggleListMode = get(g:, 'indentguides_toggleListMode', 1)
 let g:indentguides_guidewidth = get(g:, 'indentguides_guidewidth', &l:shiftwidth)
 let g:indentguides_conceal_color = get(g:, 'indentguides_conceal_color', 'ctermfg=238 ctermbg=NONE guifg=Grey27 guibg=NONE')
 let g:indentguides_specialkey_color = get(g:, 'indentguides_specialkey_color',  'ctermfg=238 ctermbg=NONE guifg=Grey27 guibg=NONE')
@@ -44,13 +45,17 @@ function! s:ToggleIndentGuides(user_initiated)
     " TODO-TK: local and global listchars are the same, and s: variables are failing (??)
     let g:original_listchars = get(g:, 'original_listchars', &g:listchars)
 
-    let listchar_guides = ',tab:' . g:indentguides_tabchar . ' ,trail:·'
-    if &g:listchars !~ listchar_guides
-      let &g:listchars = &g:listchars . listchar_guides
+    if &g:listchars !~ 'tab:'
+      let &g:listchars = &g:listchars . ',tab:' . g:indentguides_tabchar
+    endif
+    if &g:listchars !~ 'trail:'
+      let &g:listchars = &g:listchars . ',trail:·'
     endif
     setlocal concealcursor=inc
     setlocal conceallevel=2
-    setlocal list
+    if g:indentguides_toggleListMode
+      setlocal list
+    endif
     let b:toggle_indentguides = 0
   else
     syntax clear IndentGuideSpaces
@@ -59,7 +64,9 @@ function! s:ToggleIndentGuides(user_initiated)
     let &l:conceallevel = &g:conceallevel
     let &l:concealcursor = &g:concealcursor
     let &g:listchars = g:original_listchars
-    setlocal nolist
+    if g:indentguides_toggleListMode
+      setlocal nolist
+    endif
     let b:toggle_indentguides = 1
   endif
 endfunction
