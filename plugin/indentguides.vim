@@ -7,6 +7,7 @@ let g:indentguides_firstlevel = get(g:, 'indentguides_firstlevel', 0)
 let g:indentguides_ignorelist = get(g:, 'indentguides_ignorelist', [])
 let g:indentguides_spacechar = get(g:, 'indentguides_spacechar', '┆')
 let g:indentguides_tabchar = get(g:, 'indentguides_tabchar', '|')
+let g:indentguides_guidewidth = get(g:, 'indentguides_guidewidth', &l:shiftwidth)
 let g:indentguides_conceal_color = get(g:, 'indentguides_conceal_color', 'ctermfg=238 ctermbg=NONE guifg=Grey27 guibg=NONE')
 let g:indentguides_specialkey_color = get(g:, 'indentguides_specialkey_color',  'ctermfg=238 ctermbg=NONE guifg=Grey27 guibg=NONE')
 
@@ -20,10 +21,10 @@ function! s:SetIndentGuideHighlights(user_initiated)
     execute "highlight SpecialKey " . g:indentguides_specialkey_color
 
     if g:indentguides_firstlevel
-      execute printf('syntax match IndentGuideDraw /^\zs\ \ze\ \{%i}/ containedin=ALL conceal cchar=', &l:shiftwidth - 1) . g:indentguides_spacechar
+      execute printf('syntax match IndentGuideDraw /^\zs\ \ze\ \{%i}/ containedin=ALL conceal cchar=', g:indentguides_guidewidth - 1) . g:indentguides_spacechar
     endif
     execute 'syntax match IndentGuideSpaces /^\ \+/ containedin=ALL contains=IndentGuideDraw keepend'
-    execute printf('syntax match IndentGuideDraw /\ \{%i}\zs \ze/ contained conceal cchar=', &l:shiftwidth - 1) . g:indentguides_spacechar
+    execute printf('syntax match IndentGuideDraw /\ \{%i}\zs \ze/ contained conceal cchar=', g:indentguides_guidewidth - 1) . g:indentguides_spacechar
   endif
 endfunction
 
