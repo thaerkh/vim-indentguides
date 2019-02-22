@@ -46,9 +46,9 @@ function! s:ToggleIndentGuides(user_initiated)
     let g:original_listchars = get(g:, 'original_listchars', &g:listchars)
 
     " TODO: figure out why checking each addition individually breaks things for tab (unicode?)
-    let listchar_guides = ',tab:' . g:indentguides_tabchar . ' ,trail:·'
+    let listchar_guides = 'tab:' . g:indentguides_tabchar . ' ,trail:·,'
     if &g:listchars !~ listchar_guides
-      let &g:listchars = &g:listchars . listchar_guides
+      let &g:listchars = listchar_guides . &g:listchars
     endif
     setlocal concealcursor=inc
     setlocal conceallevel=2
