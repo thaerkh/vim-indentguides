@@ -31,6 +31,7 @@ endfunction
 
 function! s:ToggleIndentGuides(user_initiated)
   let b:toggle_indentguides = get(b:, 'toggle_indentguides', 1)
+  let g:indentguides_guidewidth = &l:shiftwidth
 
   if !a:user_initiated
     if index(g:indentguides_ignorelist, &filetype) != -1 || !b:toggle_indentguides
