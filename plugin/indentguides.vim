@@ -53,10 +53,10 @@ function! s:ToggleIndentGuides(user_initiated)
     endif
     if &conceallevel == 0 || &conceallevel == 3
       setlocal conceallevel=2
-    fi
-    if &concealcursor == "" && !exists('g:indentguides_concealcursor_unaltered')
+    endif
+    if &concealcursor ==# '' && !exists('g:indentguides_concealcursor_unaltered')
       setlocal concealcursor=inc
-    fi
+    endif
     if g:indentguides_toggleListMode
       setlocal list
     endif
