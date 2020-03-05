@@ -51,8 +51,12 @@ function! s:ToggleIndentGuides(user_initiated)
     if &g:listchars !~ listchar_guides
       let &g:listchars = &g:listchars . listchar_guides
     endif
-    setlocal concealcursor=inc
-    setlocal conceallevel=2
+    if &conceallevel == 0 || &conceallevel == 3
+      setlocal conceallevel=2
+    fi
+    if &concealcursor == "" && !exists('g:indentguides_concealcursor_unaltered')
+      setlocal concealcursor=inc
+    fi
     if g:indentguides_toggleListMode
       setlocal list
     endif
