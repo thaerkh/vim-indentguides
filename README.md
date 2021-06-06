@@ -18,6 +18,8 @@ let g:indentguides_spacechar = '┆'
 let g:indentguides_tabchar = '|'
 ```
 
+The plugin will set the conceallevel to '2 if' except if it is already set to '1' or '2'. If `concealcursor` it not modifed it will be set to `inc`, to disable this set it to an nonempty value or set `let g:indentguides_concealcursor_unaltered` to any nonempty value.
+
 # Installation
 
 ### Using Plug
