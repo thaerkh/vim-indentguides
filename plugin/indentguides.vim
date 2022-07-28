@@ -4,7 +4,7 @@
 " URL:     https://github.com/thaerkh/vim-indentguides
 
 let g:indentguides_firstlevel = get(g:, 'indentguides_firstlevel', 0)
-let g:indentguides_ignorelist = get(g:, 'indentguides_ignorelist', [])
+let g:indentguides_ignorelist = get(g:, 'indentguides_ignorelist', ['asciidoc', 'gitcommit', 'markdown', 'tex', 'text', ''])
 let g:indentguides_spacechar = get(g:, 'indentguides_spacechar', '┆')
 let g:indentguides_tabchar = get(g:, 'indentguides_tabchar', '|')
 let g:indentguides_toggleListMode = get(g:, 'indentguides_toggleListMode', 1)
