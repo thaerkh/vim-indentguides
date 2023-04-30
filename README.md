@@ -1,3 +1,6 @@
+<strong>Note:</strong> This plugin is no longer being maintained.
+
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/thaerkh/vim-indentguides/master/wiki/screenshots/demo.png" >
 </p>
