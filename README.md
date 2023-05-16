@@ -5,7 +5,7 @@
 " Since Vim v8.2.5066 (2022-06-07), you could use `leadmultispace` in listchars for equivalent behaviour
 " feel free to use this conceal-less alternative supporting varying buffer shift widths (use BufEnter if needed):
 set list
-autocmd OptionSet shiftwidth execute 'set listchars=tab:│\ ,multispace:┆' . repeat('\ ', &shiftwidth - 1) . ',trail:·'
+autocmd OptionSet shiftwidth execute 'setlocal listchars=trail:·,tab:│\ ,multispace:┆' . repeat('\ ', &sw - 1)
 ```
 
 <p align="center">
