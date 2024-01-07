@@ -3,6 +3,12 @@
 " License: Apache 2.0
 " URL:     https://github.com/thaerkh/vim-indentguides
 
+" A sensible if case that allows the user to disable plugin by default via vimrc
+if exists('g:loaded_vim-indentguides')
+    finish
+endif
+let g:loaded_vim_indentguides = 1
+
 let g:indentguides_firstlevel = get(g:, 'indentguides_firstlevel', 0)
 let g:indentguides_ignorelist = get(g:, 'indentguides_ignorelist', ['asciidoc', 'gitcommit', 'markdown', 'tex', 'text', ''])
 let g:indentguides_spacechar = get(g:, 'indentguides_spacechar', '┆')
